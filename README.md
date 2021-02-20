@@ -4,7 +4,7 @@ Check wifi status and reboot. OpenWrt.
 # usage
 cron or /etc/rc.local
 
-```sleep 30 && /root/wifi-check.sh wlan0 &```
+```sleep 60 && /root/wifi-check.sh wlan0 &```
 
 # log
 
