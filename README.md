@@ -4,6 +4,8 @@ Check wifi status and reboot. Opewrt.
 # usage
 cron or /etc/rc.local
 
+```sleep 30 && /root/wifi-check.sh wlan0 &```
+
 # log
 
 ```js
