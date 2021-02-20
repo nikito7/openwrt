@@ -38,7 +38,7 @@ echo debug: D $D
 if [ "$C" == "$D" ]
 then
 echo debug: reboot now
-reboot
+#reboot # remove comment
 fi
 else
 echo debug: OK
