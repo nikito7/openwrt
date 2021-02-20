@@ -1,8 +1,5 @@
 #!/bin/sh
 
-set -e
-ifconfig $1 > /dev/null
-
 ### wifi-check.sh ###
 
 if [ ! "$1" ]
