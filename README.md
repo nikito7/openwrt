@@ -1,5 +1,5 @@
 # wifi-check
-Check wifi status and reboot. Opewrt.
+Check wifi status and reboot. OpenWrt.
 
 # usage
 cron or /etc/rc.local
