@@ -46,7 +46,7 @@ fi
 
 ### loop ###
 
-#sleep 10; /bin/sh $0 $dev &
+#sleep 30; /bin/sh $0 $dev &
 
 ### wifi-check.sh ###
 ##
