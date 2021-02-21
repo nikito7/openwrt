@@ -2,6 +2,9 @@
 
 ### wifi-check.sh ###
 
+gateway=10.1.0.1
+dev=$1
+
 if [ ! "$1" ]
 then
 echo usage: $0 wlan0
@@ -9,7 +12,7 @@ echo usage: $0 lo // test
 echo usage: $0 // show all
 fi
 
-dev=$1
+ping -c 3 -w 5 $gateway > /dev/null
 
 function getbytes()
 {
