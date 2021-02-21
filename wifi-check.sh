@@ -2,6 +2,9 @@
 
 ### wifi-check.sh ###
 
+# ping only prevent 'idle network reboot'
+# If fail nothing happen.
+
 host1ping=10.1.0.1
 host2ping=10.1.0.3
 dev=$1
@@ -35,7 +38,8 @@ wifi
 sleep 10
 
 C=$(getbytes)
-echo debug: if fail will reboot. Ctrl+C now to abort.
+echo debug: if fail will reboot.
+echo debug: Press Ctrl+C now to abort.
 echo debug: C $C
 ping -c 5 -W 5 $host1ping > /dev/null
 ping -c 5 -W 5 $host2ping > /dev/null
