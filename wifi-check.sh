@@ -33,6 +33,7 @@ echo debug: B $B
 
 if [ "$A" == "$B" ]
 then
+
 echo debug: wifi cycle
 wifi
 sleep 10
@@ -52,6 +53,7 @@ then
 echo debug: reboot now
 reboot
 fi
+
 else
 echo debug: OK
 fi
