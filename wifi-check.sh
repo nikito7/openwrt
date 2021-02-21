@@ -2,7 +2,8 @@
 
 ### wifi-check.sh ###
 
-gateway=10.1.0.1
+host1ping=10.1.0.1
+host2ping=10.1.0.3
 dev=$1
 
 if [ ! "$1" ]
@@ -21,7 +22,8 @@ ifconfig $dev | grep "TX packets" | awk '{ print $2}' | awk -F : '{ print $2 }'
 
 A=$(getbytes)
 echo debug: A $A
-ping -c 3 -w 5 $gateway > /dev/null
+ping -c 1 -W 5 $host1ping > /dev/null
+ping -c 1 -W 5 $host2ping > /dev/null
 sleep 10
 B=$(getbytes)
 echo debug: B $B
@@ -33,8 +35,10 @@ wifi
 sleep 10
 
 C=$(getbytes)
+echo debug: if fail will reboot. Ctrl+C now to abort.
 echo debug: C $C
-ping -c 3 -w 5 $gateway > /dev/null
+ping -c 5 -W 5 $host1ping > /dev/null
+ping -c 5 -W 5 $host2ping > /dev/null
 sleep 10
 D=$(getbytes)
 echo debug: D $D
