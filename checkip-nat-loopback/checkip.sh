@@ -4,6 +4,7 @@
 
 dev=eth5
 file=/tmp/public.ip.tmp
+host=http://checkip.dns.he.net/
 
 if [ ! -e $file ]
 then
@@ -12,7 +13,7 @@ fi
 
 old=$(cat $file)
 
-new=$(wget -q http://checkip.dns.he.net/ -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
+new=$(wget -q $host -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
 
 if [ "${new}" ] && [ ! "${new}" == "${old}" ]
 then
