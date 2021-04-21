@@ -1,2 +1,8 @@
-# openwrt-stuff
-Check wifi status and reboot. OpenWrt.
+# kickout-wifi
+...
+
+# wificheck
+...
+
+# public ip for nat loopback
+...
