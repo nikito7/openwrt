@@ -5,14 +5,16 @@
 if [ ! "$1" ] || [ ! "$2" ]
 then
 echo usage: $0 ip1 ip2
-ip1=127.0.0.1
-ip2=127.0.0.1
+ip1=10.1.0.1
+ip2=10.1.0.2
 else
 ip1=$1
 ip2=$2
 fi
 
-### step 1
+### ### ###
+
+echo debug: step 1
 
 status=0
 ping -c 2 $ip1 > /dev/null
@@ -30,7 +32,9 @@ fi
 
 sleep 10
 
-### step 2
+### ### ###
+
+echo debug: step 2
 
 status=0
 ping -c 2 $ip1 > /dev/null
@@ -43,14 +47,14 @@ echo debug: status $status
 if [ $status -gt 1 ]
 then
 echo debug: reboot now
+sleep 1
 reboot
 fi
 
 ### loop ###
 
-#sleep 30; /bin/sh $0 $dev &
+sleep 20 && /bin/sh $0 $1 $2 &
 
 ### wifi-check.sh ###
 ##
 #
-
