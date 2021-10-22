@@ -22,7 +22,7 @@ then
 echo debug: wifi cycle
 wifi
 
-sleep 10
+sleep 20
 
 #
 
@@ -44,7 +44,7 @@ fi
 
 ### loop ###
 
-sleep 20 && /bin/sh $0 loop &
+sleep 30 && /bin/sh $0 loop &
 
 ### wifi-check.sh ###
 ##
