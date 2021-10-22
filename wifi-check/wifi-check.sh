@@ -29,6 +29,8 @@ sleep 10
 status=0
 status=$(ping -I br-lan ff02::1 -c 2 | grep DUP | wc -l)
 
+echo debug: status $status
+
 if [ $status -lt 2 ]
 then
 echo debug: reboot now
@@ -42,7 +44,7 @@ fi
 
 ### loop ###
 
-sleep 20 && /bin/sh $0 &
+sleep 20 && /bin/sh $0 loop &
 
 ### wifi-check.sh ###
 ##
