@@ -2,8 +2,10 @@
 
 ### wifi-check.sh ###
 #
-# using ipv6 multicast
+# - using ipv6 multicast
+# - for wifi bridges
 #
+###
 
 status=0
 status=$(ping -I br-lan ff02::1 -c 2 | grep DUP | wc -l)
