@@ -6,6 +6,8 @@ dev=eth0.2
 file=/tmp/public.ip.tmp
 host=http://checkip.dns.he.net/
 
+###
+
 if [ ! -e $file ]
 then
 echo "0.0.0.0" > $file
@@ -25,11 +27,11 @@ ip ro ad ${new}/32 dev $dev
 echo $new > $file
 fi
 
-### checkip.sh ### loop ###
+### loop ###
 
 sleep 55 && sh $0 $dev &
 
-#######
-# eof #
-#######
+### checkip.sh ###
+##
+#
 
