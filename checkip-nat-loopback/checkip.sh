@@ -25,6 +25,8 @@ ip ro ad ${new}/32 dev $dev
 echo $new > $file
 fi
 
+### checkip.sh ### loop ###
+
 sleep 55 && sh $0 $dev &
 
 #######
