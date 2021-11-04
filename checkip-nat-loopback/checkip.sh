@@ -2,7 +2,7 @@
 
 ### checkip.sh ###
 
-dev=eth5
+dev=eth0.2
 file=/tmp/public.ip.tmp
 host=http://checkip.dns.he.net/
 
@@ -25,7 +25,7 @@ ip ro ad ${new}/32 dev $dev
 echo $new > $file
 fi
 
-sleep 55 && sh $0 &
+sleep 55 && sh $0 $dev &
 
 #######
 # eof #
