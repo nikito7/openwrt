@@ -2,7 +2,7 @@
 
 ### wifi-check.sh ###
 
-iplist="10.1.0.1 10.1.0.7 10.1.0.99 10.1.0.98"
+iplist="10.1.0.1 10.1.0.7 10.1.0.2"
 
 ###
 
@@ -23,12 +23,12 @@ if [ $status -gt 1 ]
 then
 echo reboot now
 sleep 1
-#reboot
+reboot
 fi
 
 ### loop ###
 
-#sleep 30 && /bin/sh $0 $status &
+sleep 30 && /bin/sh $0 $status &
 
 ### wifi-check.sh ###
 ##
