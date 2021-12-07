@@ -1,50 +1,31 @@
 #!/bin/sh
 
 ### wifi-check.sh ###
-#
-# - using ipv6 multicast
-# - for wifi bridges
-#
+
+iplist="10.1.0.1 10.1.0.7"
+
 ###
 
 status=0
-status=$(ping -I br-lan ff02::1 -c 2 | grep DUP | wc -l)
+
+for ip in $iplist
+do
+ping -c 2 $ip
+status=$(($status + $?))
+done
 
 echo debug: status $status
 
-### if begin ###
-
-if [ $status -lt 2 ]
-then
-
-#
-
-echo debug: wifi cycle
-wifi
-
-sleep 20
-
-#
-
-status=0
-status=$(ping -I br-lan ff02::1 -c 2 | grep DUP | wc -l)
-
-echo debug: status $status
-
-if [ $status -lt 2 ]
+if [ $status -gt 1 ]
 then
 echo debug: reboot now
 sleep 1
-reboot
-fi
-
-### end if ###
-
+#reboot
 fi
 
 ### loop ###
 
-sleep 30 && /bin/sh $0 loop &
+#sleep 30 && /bin/sh $0 $status &
 
 ### wifi-check.sh ###
 ##
