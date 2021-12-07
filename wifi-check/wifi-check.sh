@@ -2,7 +2,7 @@
 
 ### wifi-check.sh ###
 
-iplist="10.1.0.1 10.1.0.7"
+iplist="10.1.0.1 10.1.0.7 10.1.0.99 10.1.0.98"
 
 ###
 
@@ -10,7 +10,7 @@ status=0
 
 for ip in $iplist
 do
-ping -c 2 $ip
+ping -c 2 $ip > /dev/null
 status=$(($status + $?))
 done
 
