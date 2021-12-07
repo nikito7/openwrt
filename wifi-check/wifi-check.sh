@@ -10,15 +10,16 @@ status=0
 
 for ip in $iplist
 do
-ping -c 2 $ip > /dev/null
+ping -c 2 -W 1 $ip > /dev/null
 status=$(($status + $?))
+echo status: $status ip: $ip
 done
 
-echo debug: status $status
+###
 
 if [ $status -gt 1 ]
 then
-echo debug: reboot now
+echo reboot now
 sleep 1
 #reboot
 fi
