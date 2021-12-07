@@ -7,12 +7,14 @@ iplist="10.1.0.1 10.1.0.7 10.1.0.99 10.1.0.98"
 ###
 
 status=0
+excode=0
 
 for ip in $iplist
 do
 ping -c 2 -W 1 $ip > /dev/null
-status=$(($status + $?))
-echo status: $status ip: $ip
+excode=$?
+status=$(($status + $excode))
+echo status: $status ip: $ip exit: $excode
 done
 
 ###
