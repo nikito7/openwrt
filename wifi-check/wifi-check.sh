@@ -28,7 +28,7 @@ fi
 
 ### loop ###
 
-sleep 30 && /bin/sh $0 $status &
+sleep 30 && $0 $status loop &
 
 ### wifi-check.sh ###
 ##
