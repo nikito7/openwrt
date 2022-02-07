@@ -3,6 +3,7 @@
 ### wifi-check.sh ###
 
 iplist="10.1.0.1 10.1.0.1"
+trigger1=1
 
 ###
 
@@ -20,17 +21,32 @@ done
 
 ###
 
-if [ $status -gt 1 ]
+if [ $1 ]
+then
+trigger2=$1
+else
+trigger2=0
+fi
+
+if [ $status -gt $trigger1 ]
+then
+##
+if [ $trigger -gt 0 ]
 then
 echo reboot now
 sleep 1
-#reboot
+reboot
+else
+echo restart wifi
+sleep 1
 wifi
+fi
+##
 fi
 
 ### loop ###
 
-sleep 30 && /bin/sh $0 $status loop &
+sleep 30 && /bin/sh $0 $status&
 
 ### wifi-check.sh ###
 ##
