@@ -31,7 +31,7 @@ fi
 if [ $status -gt $trigger1 ]
 then
 ##
-if [ $trigger -gt 0 ]
+if [ $trigger2 -gt 0 ]
 then
 echo reboot now
 sleep 1
@@ -46,7 +46,7 @@ fi
 
 ### loop ###
 
-sleep 30 && /bin/sh $0 $status&
+sleep 30 && /bin/sh $0 $status &
 
 ### wifi-check.sh ###
 ##
