@@ -11,6 +11,7 @@ excode=0
 
 for ip in $iplist
 do
+sleep 10
 ping -c 2 -W 1 $ip > /dev/null
 excode=$?
 status=$(($status + $excode))
@@ -23,7 +24,8 @@ if [ $status -gt 1 ]
 then
 echo reboot now
 sleep 1
-reboot
+#reboot
+wifi
 fi
 
 ### loop ###
