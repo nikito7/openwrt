@@ -6,6 +6,8 @@ dev=wan
 file=/tmp/public.ip.tmp
 host=http://checkip.dns.he.net/
 
+echo debug: start
+
 ###
 
 if [ ! -e $file ]
