@@ -17,7 +17,11 @@ fi
 
 old=$(cat $file)
 
+echo debug: get ip
+
 new=$(wget -q $host -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
+
+echo debug: result $new
 
 if [ "${new}" ] && [ ! "${new}" == "${old}" ]
 then
@@ -30,6 +34,8 @@ echo $new > $file
 fi
 
 ### loop ###
+
+echo debug: loop
 
 sleep 55 && sh $0 $dev &
 
