@@ -2,7 +2,7 @@
 
 ### checkip.sh ###
 
-dev=eth0.2
+dev=wan
 file=/tmp/public.ip.tmp
 host=http://checkip.dns.he.net/
 
