@@ -1,8 +1,1 @@
-# kickout-wifi
-...
-
-# wificheck
-...
-
-# public ip for nat loopback
-...
+..
