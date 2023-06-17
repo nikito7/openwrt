@@ -19,7 +19,7 @@ old=$(cat $file)
 
 echo debug: get ip
 
-new=$(wget -q $host -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
+new=$(wget -4 -q $host -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
 
 echo debug: result $new
 
