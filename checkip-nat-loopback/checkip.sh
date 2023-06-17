@@ -4,7 +4,7 @@
 
 dev=wan
 file=/tmp/public.ip.tmp
-host=http://checkip.dns.he.net/
+host=http://ipv4.checkip.dns.he.net/
 
 echo debug: start
 
@@ -19,7 +19,7 @@ old=$(cat $file)
 
 echo debug: get ip
 
-new=$(wget -4 -q $host -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
+new=$(wget -q $host -O - | grep "is \:" | awk -F ": "  '{ print $2 }' | awk -F \< '{ print $1 }')
 
 echo debug: result $new
 
@@ -27,7 +27,7 @@ if [ "${new}" ] && [ ! "${new}" == "${old}" ]
 then
 ip ad del ${old}/32 dev $dev
 ip ro del ${old}/32 dev $dev
-sleep 1
+sleep 2
 ip ad ad ${new}/32 dev $dev
 ip ro ad ${new}/32 dev $dev
 echo $new > $file
